@@ -19,7 +19,7 @@ private:
     
 public:
      DWS( )  {cout<< "Enter Your Name: ";cin >> Name; cout << "Enter Your IBAN: ";cin >> id;};
-     DWS(DWS* c){}
+     
     };
 
  
