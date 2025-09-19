@@ -50,7 +50,31 @@ class stocks{
 
 
 };
+class MFB //Micro-Finance Bank
+{
+private:
+    /* data */
+    int loan_id; string borrower_name; float loan_amount; float const interest_rate = 0.11;
+
+public:
+//default constructor
+MFB(){cout << "Enter Loan ID: ";cin >> loan_id;
+    cout << "Enter Borrower Name: "; cin >> borrower_name; cout << "Enter Loan_Amount: "; cin >> loan_amount;
+}
+//parameterized constructor
+MFB(int param_loan_id, string param_borrower_name, float param_loan_amount, float param_interest_rate):loan_id(param_loan_id),
+ borrower_name(param_borrower_name), loan_amount(param_loan_amount), interest_rate(param_interest_rate){}
+
+//copy constructor
+MFB(MFB const &b):loan_id(b.loan_id),
+ borrower_name(b.borrower_name), loan_amount(b.loan_amount), interest_rate(b.interest_rate){}
+
+double total_repayment(){return {loan_amount + (loan_amount*interest_rate)};}
+
+};
+
 int main (){
+    // main code for DWS class
     DWS obj1; 
     obj1.set_Account();
     cout << obj1.get_name() <<endl;
@@ -63,7 +87,7 @@ int main (){
     cout << obj2.get_IBAN()<< endl;
     cout << obj2.get_check_balance() <<" is your Bank Balance" << endl;
     
-
+//main code for stock class
     stocks client1; //Object of stock portfolio
     cout << "The holding value is \n" << client1.holding_value() <<"Rs" << endl;
     // copy constructor called
@@ -71,8 +95,15 @@ int main (){
     stocks client2(client1);
     cout << "The holding value is \n" << client2.holding_value() <<"Rs" << endl;
     
-
+    // main code for MFB class
+    MFB debt_client1;//default constructor called
+    debt_client1.total_repayment();
+    MFB debt_client2(245645,"Nofil",40000,0.11); // Parameter constructor called
+    debt_client2.total_repayment();
+    MFB debt_client3(debt_client2);// copy constructor called 
+    debt_client3.total_repayment();
         return 0;}
+
 
 
  
