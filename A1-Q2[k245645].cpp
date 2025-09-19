@@ -14,6 +14,7 @@ Book(){cout << "Enter Title of the Book: "; cin>> Title;
         cout << "Enter Author of the Book: "; cin >> Author;
         cout << "Enter ISBN of the Book: "; cin >> ISBN;
         cout << "Enter Price of the Book: "; cin >> Price;}
+~Book(){cout <<"\nThe Object has been deleted"<< endl;}
 
 //Getters    
 double Get_updated_price(){set_price_update(); return discounted_price ;}
@@ -31,9 +32,10 @@ int main(){
     Library[1].display_info();
     cout << "Sale lagi huye hai kitabo per!!!, new price is: \n" <<Library[1].Get_updated_price();
     cout<< "\n------------------Details of the Object are-------------------"<< endl;
-    Library[2].display_info();
-    cout << "Sale lagi huye hai kitabo per!!!, new price is: \n" <<Library[2].Get_updated_price();
-    Book Old_backup = Library[2];
+    Library[0].display_info();
+    cout << "Sale lagi huye hai kitabo per!!!, new price is: \n" <<Library[0].Get_updated_price();
+    Book Old_backup[2] = { Library[0], Library[1] }; // backup created using shallow copy constructor 
+
 
 return 0;
 };
