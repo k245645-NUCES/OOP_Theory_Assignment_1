@@ -12,29 +12,30 @@ class  DWS //Digital Wallet System
 private:
     /* data */
     string Name;
-    int id;
-    string IBAN = "24K-" + id;
+    string id;
+    string IBAN = "24K-"+id;
 
-    long double Bank_Balance;
+    long double Bank_Balance = 100;
     
 public:
     DWS(){} 
     DWS(DWS &c )  {c.Name = Name, c.id = id, c.IBAN = IBAN, c.Bank_Balance = Bank_Balance;}; //Deep Copy constructor 
      //Setters
      void set_Account(){cout << "Enter Your Name: "; cin >> Name; cout <<"Enter your id: "; cin >> id;}
-     void add_funds(float fund){Bank_Balance += fund;}
-     
+     void add_funds(double fund){Bank_Balance += fund;}
+     double withdraw_funds(float fund){Bank_Balance -= fund; return Bank_Balance;}
      // Getters
      double get_check_balance(){return Bank_Balance;}
-     double withdraw_funds(float fund){Bank_Balance -= fund; return Bank_Balance;}
      string get_name(){return Name;}
-     string get_IBAN(){return IBAN;}};
+     string get_IBAN(){return IBAN +id;}};
 // UML DIAGRAM NOT MADE YET
 int main (){
     DWS obj1; 
     obj1.set_Account();
-    obj1.add_funds(400.5);
-    obj1.get_check_balance();
+    cout << obj1.get_name() <<endl;
+    cout << obj1.get_IBAN()<< endl;
+     obj1.add_funds(400.5);
+    cout << obj1.get_check_balance() <<" is your Bank Balance" << endl;
     return 0;}
 
  
