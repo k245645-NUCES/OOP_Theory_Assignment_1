@@ -47,7 +47,8 @@ public:
         cout << "Screen Number: " << screenNo << endl;
         cout << "Total Seats: " << totalSeats << endl;
         cout << "Available Seats: " << availableSeats << endl;};
-};
+    void print_summary(){cout << "Movie: " << movieTitle << " | Show ID: " << showId << " | Screen: " << screenNo << " | Available Seats: " << availableSeats << endl;
+}};
 int main(){
     MovieShow shows[2];
     //setters called
@@ -61,7 +62,7 @@ int main(){
     cout << "Screen Number: " << shows[0].get_screenNo() << endl;
     cout << "Total Seats: " << shows[0].get_totalseats() << endl;
     cout << "Available Seats: " << shows[0].get_available() << endl;
-    
+
     //reserve seats
     shows[1].set_showId("S002");
     shows[1].set_movieTitle("The Matrix");  
@@ -73,6 +74,14 @@ int main(){
     shows[1].cancel(10);
     cout << "Available Seats after cancellation: " << shows[1].get_available() << endl;
     //display info
+    cout << "-----------------------Displaying Show Information of shows[0]:----------------------" << endl;
+    shows[0].display_info();
+     cout << "-----------------------Displaying Show Information of shows[1]:----------------------" << endl;
     shows[1].display_info();
+    //print summary
+    cout << "-----------------------Printing Summary of shows[0]:----------------------" << endl;
+    shows[0].print_summary();
+    cout << "-----------------------Printing Summary of shows[1]:----------------------" << endl;
+    shows[1].print_summary();
 return 0;
-};
+}
