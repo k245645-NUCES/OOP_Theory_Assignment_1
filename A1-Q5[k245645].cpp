@@ -61,7 +61,6 @@ public:
     void reset_attendance() {
         attendance = false;tap_count = 0;
         cout << "Attendance reset for " << student1.name << " (Roll " << student1.roll_no << ")." << endl;}};
-
 int main() {
     Transport student_transport[2];
     cout << "----------------------------------Displaying Student 1 Transport Info: ----------------------------" << endl;

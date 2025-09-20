@@ -1,0 +1,30 @@
+digraph UML {
+    rankdir=LR;
+    node [shape=record, fontname=Helvetica, fontsize=10, style=filled, fillcolor=lightyellow];
+
+    Students [label="{struct students| - name : string\l - department : string\l - age : int\l - roll_no : int\l}"];
+
+    Transport [label="{class Transport|
+    - student1 : students\l
+    - pick : string\l
+    - drop : string\l
+    - fee : double = 500.00\l
+    - card_activation : bool = false\l
+    - attendance : bool = false\l
+    - tap_count : int = 0\l|
+    + Transport()\l
+    + display_info() : void\l
+    + tap_card() : void\l
+    + show_attendance_record() : void\l
+    + update_route(new_pick : string, new_drop : string) : void\l
+    + get_fee() : double\l
+    + get_pickup() : string\l
+    + get_dropoff() : string\l
+    + is_present() : bool\l
+    + get_tap_count() : int\l
+    + reset_attendance() : void\l}"];
+
+    // Relationship: Transport has-a Students
+    Transport -> Students [arrowhead=diamond, label=" 1 ", fontsize=9];
+}
+
